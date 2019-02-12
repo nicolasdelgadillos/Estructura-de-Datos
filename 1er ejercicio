@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+
+void main()
+{	
+	float p, x;
+	
+	do
+	{
+		cout<<"Ingrese precio: ";
+		cin>> p;
+	}
+
+	while (p<0);
+
+	x = p * 0.5;
+
+	cout<<"El descuento es: "<<x<<"bs.";
+	getch();
+}
