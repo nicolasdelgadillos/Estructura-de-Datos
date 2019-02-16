@@ -1,0 +1,63 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Math.h"
+
+using namespace std;
+
+void EcuaCuadr (float a, float b, float c, float x1, float x2);
+void EcuaCuadrUnica(float a, float b, float x1);
+
+void main()
+{	float a, b, c, x1, x2, aux;
+	
+	do
+	{
+		cout<<"\n Ingrese el valor de a: "<<endl;
+		cin>> a;
+	}
+	while (a==0);
+
+	cout<<"\n Ingrese el valor de b: "<<endl;
+	cin>> b;
+	cout<<"\n Ingrese el valor de c: "<<endl;
+	cin>> c;
+
+	aux = (pow(b,2)) - (4 * a * c);
+
+	if (aux < 0)
+	{
+		cout<<"\n ---NO TIENE SOLUCION---";
+	}
+	else
+	{
+		if (aux == 0)
+		{
+			EcuaCuadrUnica(a, b, x1);
+		}
+		else
+		{
+			EcuaCuadr (a, b, c, x1, x2);
+		}
+	}
+	getch();
+}
+
+
+void EcuaCuadrUnica(float a, float b, float x1)
+{
+	cout<<"\n ---LA UNICA SOLUCION ES: "<<endl;
+			
+			x1 = (-b) / (2*a);
+
+			cout<< x1;
+}
+
+void EcuaCuadr (float a, float b, float c, float x1, float x2)
+{
+		x1 = ((-b) + (sqrt((pow(b,2)) - (4 * a * c)))) / (2 * a);
+		x2 = ((-b) - (sqrt((pow(b,2)) - (4 * a * c)))) / (2 * a);
+
+		cout<<"\n La Primer Solucion Real es: "<<x1<<endl;
+		cout<<"\n La Segunda Solucion Real es: "<<x2<<endl;	
+}
