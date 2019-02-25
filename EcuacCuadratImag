@@ -1,0 +1,83 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Math.h"
+
+using namespace std;
+
+float resultado (float a, float b, float c);
+
+void main()
+{
+  float a, b, c, opc;
+
+  do
+  { cout<<"\n Desea ingresar datos? "<<endl;
+    cout<<"\n 1.- SI "<<endl;
+    cout<<"\n 2.- NO "<<endl;
+    cout<<"\n Opcion #: ";
+    cin>>opc;
+
+    if ( opc == 1)
+    {
+    do
+    {   cout<<"\n Ingrese el valor de a: "<<endl;
+        cin>>a;
+    }
+     while (a == 0);
+     
+     cout<<"\n Ingrese el valor de b: "<<endl;
+     cin>>b;
+     
+     cout<<"\n Ingrese el valor de c: "<<endl;
+     cin>>c;
+     resultado(a, b, c);
+     }
+     else
+     {
+        cout<<"\n PROGRAMA TERMINADO";
+     }
+   }
+   while( opc == 1);
+
+getch();
+}
+
+float resultado (float a, float b, float c)
+{   
+     float aux, x1, x2, x3;
+     
+     aux = (pow(b,2)) - (4 * a * c);
+     if (aux == 0)
+     {
+     x1 = (-b / 2 * a);
+     cout<<"\n La unica solucion real es: "<<endl;
+     cout<<x1;
+     }
+     else
+     {
+         if (aux < 0)
+         {
+          x1 = (sqrt(-aux)) / 2 * a;
+          x2 = - (sqrt(-aux)) / 2 * a;
+          x3 = (-b / 2 * a);
+          
+          cout<<"\n Solucion imaginaria #1: "<<endl;
+          cout<<x3<<" + "<<x1<<endl;
+          cout<<"\n Solucion imaginaria #2: "<<endl;
+          cout<<x3<<" "<<x2<<endl;
+          }
+          else
+          {
+          x1 = ((-b) + (sqrt((pow(b,2)) - (4 * a * c))))/ 2 * a;
+          x2 = ((-b) - (sqrt((pow(b,2)) - (4 * a * c))))/ 2 * a;
+          cout<<"\n La primer solucion real es: "<<endl;
+          cout<<x1<<endl;
+          cout<<"\n La segunda solucion real es: "<<endl;
+          cout<<x2;
+          }
+    }
+
+return 0;
+
+}
