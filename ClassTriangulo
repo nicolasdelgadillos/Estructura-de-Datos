@@ -1,0 +1,71 @@
+Triangulo.h . -
+
+#pragma once
+class Triangulo
+{
+private:
+	float base;
+	float altura;
+
+public:
+	Triangulo(void);
+	~Triangulo(void);
+	float area(void);
+	float area(float _base, float _altura);
+};
+
+
+
+Triangulo.cpp . -
+
+#include "StdAfx.h"
+#include "Triangulo.h"
+#include <iostream>
+#include "Conio.h"
+
+using namespace std;
+
+
+Triangulo::Triangulo(void)
+{
+	base = 10;
+	altura = 15;
+}
+
+Triangulo::~Triangulo(void)
+{
+
+}
+
+float Triangulo::area(void)
+{
+	float aux;
+	aux = (base*altura)/2;
+	return aux;
+}
+float Triangulo::area(float _base, float _altura)
+{
+	float aux;
+	aux = (_base*_altura)/2;
+	return aux;
+}
+
+
+
+Lab.Tri.Para.cpp . -
+
+#include "Stdafx.h"
+#include "Triangulo.h"
+#include <iostream>
+#include "Conio.h"
+
+using namespace std;
+
+void main()
+{
+	Triangulo t1;
+	cout<<"El area del primer triangulo es: "<<t1.area()<<endl;
+	cout<<"El area del segundo triangulo es: "<<t1.area(12,7)<<endl;
+
+	getch();
+}
