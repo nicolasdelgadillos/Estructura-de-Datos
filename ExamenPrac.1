@@ -1,0 +1,225 @@
+---------------Ejercicio 1-------------------
+
+
+Esfera.h
+#pragma once
+class esfera
+{
+private:
+	float r;
+	float pi;
+public:
+	esfera(int _r);
+	~esfera(void);
+	float area();
+};
+
+
+
+
+Esfera.cpp
+#include "StdAfx.h"
+#include "esfera.h"
+
+
+esfera::esfera(int  _r)
+{
+	r=_r;
+	pi=3.141516;
+}
+
+
+esfera::~esfera(void)
+{
+}
+float esfera::area()
+{
+	float area;
+	area=4*pi*r*r;
+	return area;
+}
+
+
+Ejercicio esfera.cpp
+#include "stdafx.h"
+#include <iostream>
+#include "esfera.h"
+#include "conio.h"
+using namespace std;
+
+void main()
+{
+	float r;
+	cout<<"Ingrese el Radio de su esfeera que desea calcular: ";
+	cin>>r;
+	esfera esfera1(r);
+	cout<<"El area de su esfera es: "<<esfera1.area();
+	getch ();
+}
+
+
+
+
+
+------------------------Ejercicio 2-----------------------
+
+
+
+Dígitos.h
+#pragma once
+class Digitos
+{
+private:
+	int n;
+public:
+	Digitos(int __n);
+	~Digitos(void);
+	int contarnumeros();
+};
+
+
+
+
+Dígitos.cpp
+#include "StdAfx.h"
+#include "Digitos.h"
+
+
+Digitos::Digitos(int _n)
+{
+	n=_n;
+}
+
+
+Digitos::~Digitos(void)
+{
+}
+int Digitos:: contarnumeros()
+{
+	int i=0;
+	do
+	{
+		n=n/10;
+		if (n%10>=0)
+		{
+			i++;
+		}
+	}while (n>0);
+	return i;
+}
+
+
+
+
+Ejercicio dígitos.cpp
+#include "stdafx.h"
+#include <iostream>
+#include "Digitos.h"
+#include "conio.h"
+using namespace std;
+
+
+
+void main()
+{
+	int n;
+	
+	cout<<"Ingrese el numero del cual desea contar sus digitos: ";
+	cin>>n;
+	Digitos d1(n);
+	cout<<"La cantidad d digitos de su numero es: "<<d1.contarnumeros(); 
+	getch ();
+}
+
+
+
+-------------------------Ejercicio 3----------------------
+
+
+Empleado.h
+#pragma once
+#include <string>
+using namespace std;
+class empleado
+{
+private:
+	string nombre;
+	int ci;
+	string cumpleaños;
+public:
+	empleado(string _nombre, int _ci,string _cumpleaños);
+	~empleado(void);
+	string mostrarnombre();
+	int mostrarci();
+	string mostrarcumpleaños();
+};
+
+
+
+
+
+Empleado.cpp
+#include "StdAfx.h"
+#include "empleado.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+empleado::empleado(string _nombre, int _ci, string _cumpleaños)
+{
+	nombre=_nombre;
+	ci=_ci;
+	cumpleaños=_cumpleaños;
+}
+
+
+empleado::~empleado(void)
+{
+}
+string empleado::mostrarnombre()
+{
+	return nombre;
+}
+int empleado::mostrarci()
+{
+	return ci;
+}
+string empleado::mostrarcumpleaños()
+{
+	return cumpleaños;
+}
+
+
+
+
+
+Ejercicio empleado.cpp
+#include "stdafx.h"
+#include <iostream>
+#include "empleado.h"
+#include "conio.h"
+#include <string>
+
+using namespace std;
+
+void main()
+{
+	string nombre;
+	string cumpleaños;
+	int ci;
+	cout<<"Ingrese su nombre: ";
+	cin.ignore();
+	getline(cin,nombre);
+	cout<<"ingrese su carnet de identidad: ";
+	cin>>ci;
+	cout<<"ingrese su fecha de nacimiento "<<endl<<"Ejemplo 27-01-1999"<<endl;
+	cin.ignore();
+	getline(cin,cumpleaños);
+	empleado empleado1(nombre,ci,cumpleaños);
+	cout<<"El nombre ingresado es: "<<empleado1.mostrarnombre()<<endl;
+	cout<<"El # de carnet ingresado es: "<<empleado1.mostrarci()<<endl;
+	cout<<"Su fecha de nacimiento es: "<<empleado1.mostrarcumpleaños()<<endl;
+	getch();
+	
+}
