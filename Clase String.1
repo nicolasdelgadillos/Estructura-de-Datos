@@ -1,0 +1,183 @@
+1)
+Esfera.h
+
+#pragma once
+class esfera
+{private:
+  float r;
+public:
+	esfera(float n);
+	~esfera(void);
+	float area();
+};
+
+Esfera.cpp
+#include "StdAfx.h"
+#include "esfera.h"
+
+
+esfera::esfera(float b)
+{r=b;
+}
+
+esfera::~esfera(void)
+{
+}
+float esfera::area()
+{ float aux;
+aux=4*3.1416*r*r;
+  return aux;
+
+}
+
+Esfera1.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "esfera.h"
+
+using namespace std;
+void main()
+{float area,r;
+do
+{cout<<"ingrese el radio:";
+cin>>r;}
+while (r<=0);
+esfera e1(r);
+cout<<"el area de la esfera es: "<< e1.area();
+	getch();
+}
+
+2)
+Numero.h
+
+
+#pragma once
+class numero
+
+{private:
+int n;
+public:
+	numero(int a);
+	~numero(void);
+	int ndigitos();
+};
+
+Numero.cpp
+#include "StdAfx.h"
+#include "numero.h"
+
+numero::numero(int a)
+{n=a;
+}
+
+
+numero::~numero(void)
+{
+}
+int numero::ndigitos()
+{int aux=0,p;
+while(n>0)
+{p=n%10;
+ n=n/10;
+ aux++;
+}
+return aux;
+
+}
+
+Numero1.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "numero.h"
+
+using namespace std;
+void main()
+{int n,aux;
+do{
+	cout<<"ingrese el numero:";
+	cin>>n;
+	
+}while(n<=0);
+numero n1(n);
+	cout<<"el numero de digitos es: "<<n1.ndigitos();
+
+getch();
+}
+
+3)
+Carnet.h
+
+#pragma once
+#include <string>
+#include <iostream>
+using namespace std;
+
+class carnet
+{private:
+string nom,f;
+int n;
+
+public:
+	carnet( string a,string b, int c);
+	~carnet(void);
+	string nombre();
+	int ci();
+	string fecha();
+};
+
+Carnet .cpp
+#include "StdAfx.h"
+#include "carnet.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+
+carnet::carnet(string a,string b, int c)
+{nom=a;
+f=b;
+n=c;
+}
+carnet::~carnet(void)
+{
+}
+string carnet::nombre()
+{
+	return nom;
+
+}
+int carnet::ci()
+{return n;
+
+}
+string carnet::fecha()
+{ return f;
+
+}
+
+Carnet.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "carnet.h"
+#include <string>
+using namespace std;
+void main()
+{string nom,f;
+int n;
+
+ cout<<"ingrese el nombre:";
+ getline(cin,nom);
+ cout<<"ingrese la fecha de nacimiento: ";
+ getline(cin,f);
+ cout<<"ingrese el ci:";
+ cin>>n;
+ carnet c1(nom,f,n);
+ cout<<endl;
+ cout<<"el nombre es: "<<c1.nombre()<<endl;
+ cout<<"la fecha de nacimiento es: "<<c1.fecha()<<endl;
+cout<<"el nombre es: "<<c1.ci()<<endl;
+ getch();
+}
