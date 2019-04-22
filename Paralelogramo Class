@@ -1,0 +1,74 @@
+aralelogramo.h
+
+#pragma once
+class paralelogramo
+{
+private:
+	float base;
+	float altura;
+
+public:
+	paralelogramo(void);
+	~paralelogramo(void);
+	float area();
+	float area(float b, float a);
+	float peri();
+	float peri(float b, float a);
+};
+
+paralelogramo.cpp
+
+#include "StdAfx.h"
+#include "paralelogramo.h"
+#include <iostream>
+using namespace std;
+
+paralelogramo::paralelogramo(void)
+{base=5;
+altura=7;
+}
+
+paralelogramo::~paralelogramo(void)
+{
+}
+float paralelogramo::area()
+{float aux;
+aux=(base*altura)/2;
+	return aux;
+}
+float paralelogramo::area(float a, float b)
+{
+	float aux;
+aux=(b*a)/2;
+	return aux;
+}
+
+float paralelogramo::peri()
+{float aux;
+aux=(2*base+2*altura);
+	return aux;
+}
+float paralelogramo::peri(float a, float b)
+{float aux;
+aux=(2*b+2*a);
+	return aux;
+}
+
+gramo.main
+
+#include "stdafx.h"
+#include "paralelogramo.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main()
+{paralelogramo p1;
+cout<<"el area es: "<<p1.area()<<endl;
+cout<<"el area es: "<<p1.area(12,5)<<endl;
+cout<<"el perimetro es: "<<p1.peri()<<endl;
+cout<<"el perimetro es: "<<p1.peri(12,5)<<endl;
+
+getch();
+
+}
