@@ -1,4 +1,4 @@
-aralelogramo.h
+paralelogramo.h
 
 #pragma once
 class paralelogramo
