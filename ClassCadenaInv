@@ -1,0 +1,72 @@
+ --------------Invertir.h-------------
+ #pragma once
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+class Invertir
+{
+private:
+	string  cad;
+public:
+	Invertir(string _cad);
+	~Invertir(void);
+	void inv();
+	string devolver();
+};
+--------------Invertir.cpp-------------
+#include "StdAfx.h"
+#include "Invertir.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+Invertir::Invertir(string _cad)
+{
+	cad = _cad;
+}
+
+
+Invertir::~Invertir(void)
+{
+}
+
+void Invertir::inv()
+{	char c, p;
+	int n, j;
+	n = cad.length();
+	j = (n-1);
+	for(int i=0 ; i<(n/2) ; i++)
+	{
+		c = cad.at(i);
+		p = cad.at(j);
+		cad[i] = p;
+		cad[j] = c;
+		j--;
+	}
+}
+
+string Invertir::devolver()
+{
+	return cad;
+}
+--------------InvertirCadena.cpp-------------
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Invertir.h"
+#include <string>
+
+using namespace std;
+
+void main()
+{	string cadena;
+	cout<<"Ingrese la palabra: ";
+	getline(cin,cadena);
+	Invertir i1(cadena);
+	i1.inv();
+	cout<<"Invertida es: "<<i1.devolver()<<endl;
+	getch();
+}
